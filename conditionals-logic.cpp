@@ -130,3 +130,64 @@ int main() {
   }
   std::cout << "\nYour weight: " << weight << "\n";
 }
+
+
+// ______________________________________________________________
+/* logical operators:
+
+&&: the and logical operator
+||: the or logical operator
+!: the not logical operator
+
+( !true ) returns false
+( !false ) returns true			note: The keyword not can be used in the place of !
+( !(10 < 11) ) returns false
+
+*/
+
+// if hungry AND angry = true then print hangry
+int main() {
+  int hunger = true;
+  int anger = true;
+  if (hunger && anger) {
+    std::cout << "hangry!!!!!!!!!!\n";
+  }
+}
+
+// if day=6 OR day=7 print weekend
+int main() {
+  int day = 6;
+  if (day == 6 || day == 7) {
+    std::cout << "weekend\n";
+  }
+}
+
+//  not logical operator is denoted by !
+int main() {
+  bool dirty_laundry = false;
+  if (!dirty_laundry) {
+    std::cout << "Adulting!\n";
+  }
+}
+// can also be written as:
+if (dirty_laundry == false) {
+  std::cout << "Adulting!\n";
+
+// leap year - take a year as input, check to see if the year is a four-digit number, displays whether or not the year falls on a leap year
+int main() {
+  int y = 0;
+  std::cout << "Enter year: ";
+  std::cin >> y;
+  if (y < 1000 || y > 9999) {
+    std::cout << "Invalid entry.\n";
+  }
+  else if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+    std::cout << y;
+    std::cout << " falls on a leap year.\n";
+  }
+  else {
+    std::cout << y;
+    std::cout << " is not a leap year.\n";
+  }
+}
+ 
