@@ -8,8 +8,8 @@ this is a block comment
 codecademy day one: learn C++ "Hello World"
  */
 // this is a line comment 
-// ______________________________________________________________
 
+// ______________________________________________________________
 /*  main structure of a program:
 
 #include <iostream>
