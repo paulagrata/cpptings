@@ -5,6 +5,19 @@ for
 
 */
 
+// incrementing for loop:
+for (int i = 0; i < 20; i++) 
+  {
+  // statements
+  }
+
+// decrementing for loop:
+for (int i = 20; i > 0; i--) 
+  {
+  // statements
+  }
+
+
 // ______________________________________________________________
 //  program that asks and checks for a password - uses a while loop to ask the user for the password over and over again.
 int main() {
@@ -47,3 +60,21 @@ int main() {
   }  
  
 }
+
+// ______________________________________________________________
+// program that calculates and prints a simple list of squares
+
+int main() {
+
+  int i = 0;
+  int square = 0;
+  
+  while (i < 10) {
+  square = i * i;
+  std::cout << i << "  " << square << "\n";
+  i++;
+  }
+}
+
+
+
