@@ -53,6 +53,7 @@ bool: true/false values             ex: true, false
 
 */
 
+// ______________________________________________________________
 // displaying variable with computions
 int main() {
   int score = 0;
@@ -60,6 +61,7 @@ int main() {
   std::cout << score << "\n";
 }
 
+// ______________________________________________________________
 // displaying user's inputed value
 int main() {
   int tip = 0;
@@ -68,7 +70,7 @@ int main() {
   std::cout << "You paid " << tip << " dollars.\n";
 }
 
-
+// ______________________________________________________________
 // converting fahrenheit to celsius
 int main() {
   double tempf;
@@ -79,6 +81,7 @@ int main() {
   std::cout << "The temp is " << tempc << " degrees Celsius.\n";
 }
 
+// ______________________________________________________________
 // converting weight on earth to weight on mars
 int main() {
   double weightOnEarth;
@@ -87,4 +90,26 @@ int main() {
   std::cin >> weightOnEarth;
   double weightOnMars = weightOnEarth * marsGravity;
   std::cout << "The weight of the item on Mars would be: " << weightOnMars << " pounds.\n";
+}
+
+// ______________________________________________________________
+// quadratic formula
+int main() {
+  double a, b, c;
+  double root1, root2;
+
+  std::cout << "enter a: ";
+  std::cin >> a;
+  std::cout << "enter b: ";
+  std::cin >> b;
+  std::cout << "enter c: ";
+  std::cin >> c;
+
+  root1 = (-b + std::sqrt(b*b - 4*a*c)) / (2*a);
+  root2 = (-b - std::sqrt(b*b - 4*a*c)) / (2*a);
+
+  std::cout << "root 1: " << root1 << "\n";
+  std::cout << "root 2: " << root2 << "\n";
+
+  return 0;
 }
