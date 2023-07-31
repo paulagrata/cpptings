@@ -17,6 +17,17 @@ int main() {
   what program does here 
 }
 
+fun fact: use -
+using namespace std;
+so you don't need to write std::cout and just cout !! 
+example:
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+
 */
 
 #include <iostream>
