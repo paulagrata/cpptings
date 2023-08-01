@@ -2,4 +2,4 @@
 ☆☆☆☆
 
 lessons:
-1. (intro/variables)[intro-variables.cpp] 
+1. [intro/variables](intro-variables.cpp)
