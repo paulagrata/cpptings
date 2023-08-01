@@ -26,6 +26,10 @@ function with parameters requirements:
 - function call must include the same number of arguments as there are parameters
 - corresponding arguments must be passed in the same order
 
+scope is the region of code that can access or view a given element
+- variables defined in global scope are accessible throughout the program
+- variables defined in a function have local scope and are only accessible inside the function
+
 */
 
 // ______________________________________________________________
