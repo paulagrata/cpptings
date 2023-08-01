@@ -8,7 +8,7 @@ built in functions:
 #include <string>
 
 declaration: this includes the function’s name, what the return type is, and any parameters 
-(if the function will accept input values, known as arguments)
+   (if the function will accept input values, known as arguments)
 definition: also known as the body of the function, this contains the instructions for 
    what the function is supposed to do.
 
