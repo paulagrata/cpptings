@@ -7,8 +7,10 @@ built in functions:
 #include <cmath>
 #include <string>
 
-declaration: this includes the function’s name, what the return type is, and any parameters (if the function will accept input values, known as arguments)
-definition: also known as the body of the function, this contains the instructions for what the function is supposed to do.
+declaration: this includes the function’s name, what the return type is, and any parameters 
+(if the function will accept input values, known as arguments)
+definition: also known as the body of the function, this contains the instructions for 
+   what the function is supposed to do.
 
 basic structure:
 return_type function_name(any,parameters,you,have) {
@@ -17,7 +19,8 @@ return_type function_name(any,parameters,you,have) {
 }
 
 void - the point of no return:
-a void function also known as a subroutine has no return value, making it ideally suited for situations where you just want to print stuff to the terminal
+a void function also known as a subroutine has no return value, making it ideally suited for 
+   situations where you just want to print stuff to the terminal
 
 function with parameters requirements:
 - function call must include the same number of arguments as there are parameters
