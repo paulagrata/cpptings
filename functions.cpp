@@ -152,7 +152,7 @@ int main() {
 #include <iostream>
 std::string needs_water(int days, bool is_succulent) {
   if (days > 3 && is_succulent == false) {
-    return "yime to water the plant.";
+    return "time to water the plant.";
   } else if (days < 13 && is_succulent) {
     return "do NOT water the plant!";
   } else if (days >= 13 && is_succulent) {
