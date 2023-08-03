@@ -61,10 +61,23 @@ an inline function advises the compiler to insert the function’s body where th
 (unless you are dealing with member functions, which are automatically inlined for you)
 - example below
 
+function overloading:
+- you can give multiple C++ functions the same name
+- at least one of these conditions is true:
+   ⭒ each has different type parameters
+   ⭒ each has a different number of parameters
+
+build function templates:
+a template is a C++ tool that allows programmers to add data types as parameters
+- std::string and std::vector are both template-based types
+- templates are entirely created in header files
+- choose the type implementation right when you call the function
+- example below
+
 */
 
 // ______________________________________________________________
-// basic program with random built-in function:
+// basic script with random built-in function:
 #include <iostream>
 int main() {
   // seeds the random number generator:
@@ -244,5 +257,51 @@ std::string goodnight2(std::string thing1, std::string thing2);
 // add goodnight1 function here for testing speed
 std::string goodnight2(std::string thing1, std::string thing2) {
   return "Goodnight, " + thing1 + " jumping over the " + thing2 + ".\n";
+}
+
+// ______________________________________________________________
+// script that sets default arguements:
+// [main.cpp]
+#include <iostream>
+#include "coffee.hpp"
+int main() {
+  // coffee black
+  std::cout << make_coffee();
+  // coffee with milk
+  std::cout << make_coffee(true);
+  // coffee with milk and sugar
+  std::cout << make_coffee(true, true);
+  // coffee with sugar
+  std::cout << make_coffee(false, true);  // first argument IS the default value + second argument is NOT
+}
+// [coffee.hpp]
+std::string make_coffee(bool milk = false, bool sugar = false);
+// [coffee.cpp]
+#include <string>
+std::string make_coffee(bool milk, bool sugar) {
+  std::string coffee = "here's your coffee";
+  if (milk and sugar) {
+    coffee += " with milk and sugar";
+  } else if (milk) {
+    coffee += " with milk";
+  } else if (sugar) {
+    coffee += " with sugar";
+  }
+  return coffee + ".\n";
+}
+
+// ______________________________________________________________
+// function templates:
+// [main.cpp]
+#include <iostream>
+#include "numbers.hpp"
+int main() {
+  std::cout << get_smallest(100, 60) << "\n";
+  std::cout << get_smallest(2543.2, 3254.3) << "\n";
+}
+// [numbers.hpp]
+template <typename T>
+T get_smallest(T num1, T num2) {
+  return num2 < num1? num2 : num1;
 }
 
