@@ -8,9 +8,9 @@ built in functions:
 #include <string>
 
 declaration: this includes the function’s name, what the return type is, and any parameters 
-   (if the function will accept input values, known as arguments)
+             (if the function will accept input values, known as arguments)
 definition: also known as the body of the function, this contains the instructions for 
-   what the function is supposed to do.
+             what the function is supposed to do.
 
 basic structure:
 return_type function_name(any,parameters,you,have) {
@@ -20,7 +20,7 @@ return_type function_name(any,parameters,you,have) {
 
 void - the point of no return:
 a void function also known as a subroutine has no return value, making it ideally suited for 
-   situations where you just want to print stuff to the terminal
+situations where you just want to print stuff to the terminal
 
 function with parameters requirements:
 - function call must include the same number of arguments as there are parameters
@@ -29,6 +29,37 @@ function with parameters requirements:
 scope is the region of code that can access or view a given element
 - variables defined in global scope are accessible throughout the program
 - variables defined in a function have local scope and are only accessible inside the function
+
+put functions in multi-file programs:
+- main prorgram [main.cpp]
+- seperate file for header [functions.hpp]
+   ⭒ the header is for declaring the functions, can end in .hpp or .h
+- seperate file for functions [functions.cpp]
+- execute 'g++ main.cpp functions.cpp'
+ex:
+[main.cpp]
+#include <iostream>
+#include "functions.hpp"   -> must include the header file
+int main() {
+  std::cout << average(8.0, 19.0) << "\n";
+}
+[functions.hpp]
+double average(double num1,double num2); 
+[functions.cpp]
+#include <iostream>
+double average(double num1, double num2) {
+  return (num1 + num2) / 2;
+}
+
+inline:
+an inline function advises the compiler to insert the function’s body where the function call is
+*does can increase/decrease execution speed*
+- inline is something you’ll encounter + may never use
+- inline functions are just member functions (functions inside of classes)
+  which have been defined and declared in a single line in a header file
+- ALWAYS add the inline keyword if you are inlining functions in a header 
+(unless you are dealing with member functions, which are automatically inlined for you)
+- example below
 
 */
 
@@ -185,3 +216,33 @@ int main() {
   std::cout << is_palindrome("ada") << "\n";
   std::cout << is_palindrome("lovelace") << "\n";
 }
+
+// ______________________________________________________________
+// inline example with execution speed test [0.024179-0.022036]
+// [main.cpp]
+#include <iostream>
+#include <chrono>
+#include "night.hpp"
+int main() {
+  // measure time taken for goodnight1():
+  std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
+  std::cout << goodnight1("tulip");
+  std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double, std::milli> time_span = end - start;
+  // print time taken for goodnight1():
+  std::cout << "Time taken for goodnight1(): " << time_span.count() << " milliseconds.\n\n";
+  std::cout << goodnight2("eraser", "ivy");
+}
+// [night.hpp]
+inline    // need this, remove for testing original without inline 
+std::string goodnight1(std::string thing1) {    // switch to declaration for testing -> 
+  return "Goodnight, " + thing1 + ".\n";        // std::string goodnight1(std::string thing1);
+}                                               // move this function to night.cpp
+std::string goodnight2(std::string thing1, std::string thing2);
+// [night.cpp]
+#include <string>
+// add goodnight1 function here for testing speed
+std::string goodnight2(std::string thing1, std::string thing2) {
+  return "Goodnight, " + thing1 + " jumping over the " + thing2 + ".\n";
+}
+
