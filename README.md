@@ -8,3 +8,4 @@
 4. [vectors](vectors.cpp)
 5. [arrays](arrays.cpp)
 6. [functions](functions.cpp)
+7. [classes/objects](classes-objects.cpp)
