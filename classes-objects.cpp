@@ -76,4 +76,8 @@ std::string Song::get_artist() {
 }
 
 // ______________________________________________________________
-//  script to 
+//  script to show use of constructors
+// public constructor for Song in song.hpp, std::string parameters: new_title new_artist
+// define the constructor inside song.cpp and initialize title to new_title and artist to new_artist
+// main() will instantiate a new Song
+
