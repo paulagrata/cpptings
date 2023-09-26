@@ -3,11 +3,13 @@
 classes/objects
 
 classes - serves as a blueprint for objects, which are instances of the class [just like age is an instance of int - int age]
+- the data attributes and functions inside of a class
 - empty classes are useless
 - must declare a method inside the class if we want to define it outside
 - by default, everything in a class is private [class members are limited to the scope of the class, ezer for not altering data]
 - set class public [can use it to make everything below accessible outside the class]
 - set private access modifier for when you want something below public to be private to the class
+- user-defined types
 
 components of a class are called class members [you can access class members using the dot operator - object.class_member]
 two types of class members:
@@ -19,10 +21,20 @@ constructor - a special kind of method that lets you decide how the objects of a
 - has the same name as the class and no return type
 - best when used to instantiate an object with specific attributes
 
+destructor - is a special method that handles object destruction
+- [like a constructor] it has the same name as the class and no return type
+- preceded by a ~ operator and takes no parameters
+- really about tidying up and preventing memory leaks
+- destructor will be called automatically in any of the following scenarios:
+    • object moves out of scope
+    • object is explicitly deleted
+    • when the program ends
+
 object - an instance of a class that encapsulates data and functionality pertaining to that data
 create (or instantiate) an object:     City nameofcity;
 set object’s attributes values:        nameofcity.population = 123456789;
 using a method created in a class      nameofcity.get_population();
+[creating a new object from a class is called instantiation]
 
 */
 
@@ -76,8 +88,73 @@ std::string Song::get_artist() {
 }
 
 // ______________________________________________________________
-//  script to show use of constructors
+// script to show use of constructors
 // public constructor for Song in song.hpp, std::string parameters: new_title new_artist
 // define the constructor inside song.cpp and initialize title to new_title and artist to new_artist
 // main() will instantiate a new Song
+// music.cpp
+#include <iostream>
+#include "song.hpp"
+int main() {
+  Song back_to_black("Back to Black", "Amy Winehouse");
+  std::cout << back_to_black.get_title() << "\n" << back_to_black.get_artist();
+}
+// song.hpp
+#include <string>
+class Song {
+  std::string title;
+  std::string artist;
+public:
+  // constructor here:
+  Song(std::string new_title, std::string new_artrist);
+  std::string get_title();
+  std::string get_artist();
+};
+// song.cpp
+#include "song.hpp"
+// song constructor here:
+Song::Song(std::string new_title, std::string new_artist)
+: title(new_title), artist(new_artist){}
+std::string Song::get_title() {
+  return title;
+}
+std::string Song::get_artist() {
+  return artist;
+}
 
+// ______________________________________________________________
+// script to show use of deconstuctors
+// to complile and execute: g++ music.cpp song.cpp -> ./a.out
+// music.cpp
+#include <iostream>
+#include "song.hpp"
+int main() {
+  Song back_to_black("Back to Black", "Amy Winehouse");
+}
+// song.hpp
+#include <string>
+class Song {
+  std::string title;
+  std::string artist;
+public:
+  Song(std::string new_title, std::string new_artist);
+  // destructor here:
+  ~Song();
+  std::string get_title();
+  std::string get_artist();
+};
+// song.cpp
+#include <iostream>
+#include "song.hpp"
+Song::Song(std::string new_title, std::string new_artist) 
+  : title(new_title), artist(new_artist) {}
+// song destructor here:
+Song::~Song(){
+  std::cout << "Goodbye, " << title << "\n";
+}
+std::string Song::get_title() {
+  return title;
+}
+std::string Song::get_artist() {
+  return artist;
+}
