@@ -9,3 +9,4 @@
 5. [arrays](arrays.cpp)
 6. [functions](functions.cpp)
 7. [classes/objects](classes-objects.cpp)
+8. [references/pointers](references-pointers.cpp)
