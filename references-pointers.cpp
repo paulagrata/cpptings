@@ -51,7 +51,6 @@ pointers - a pointer variable is mostly the same as other variables, which can s
     - nullptr is a new keyword, provides a typesafe pointer value representing an empty pointer
     - example: int* ptr = nullptr;
 
-
 dereference: [the asterisk sign *] is used to obtain the value pointed to by a variable
 - this can be done by preceding the name of a pointer variable with *
 
