@@ -124,7 +124,7 @@ std::string Song::get_artist() {
 
 // ______________________________________________________________
 // script to show use of deconstuctors
-// to complile and execute: g++ music.cpp song.cpp -> ./a.out
+// to complile and execute: g++ music.cpp song.cpp -> ./a.out 
 // music.cpp
 #include <iostream>
 #include "song.hpp"
