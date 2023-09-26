@@ -45,6 +45,13 @@ pointers - a pointer variable is mostly the same as other variables, which can s
         - &gum is the memory address of the other variable gum
         - now ptr has a value of gum‘s memory address
 
+    null pointer: declare a pointer variable like so, its content is not intialized
+    - contains an address of “somewhere”, which is of course not a valid location
+    - need to initialize a pointer by assigning it a valid address -> use null pointer
+    - nullptr is a new keyword, provides a typesafe pointer value representing an empty pointer
+    - example: int* ptr = nullptr;
+
+
 dereference: [the asterisk sign *] is used to obtain the value pointed to by a variable
 - this can be done by preceding the name of a pointer variable with *
 
