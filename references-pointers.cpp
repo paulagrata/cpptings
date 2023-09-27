@@ -150,3 +150,45 @@ int main() {
   // print dereference *ptr, output: 9000 
   std::cout << *ptr;
 }
+
+// ______________________________________________________________
+//  script to bleep word in sentence
+// bleep.cpp
+#include <iostream>
+#include <string>
+#include "functions.hpp"
+int main() {
+  std::string word = "broccoli";
+  std::string sentence = "I sometimes eat broccoli. The interesting thing about broccoli is that there are four interesting things about broccoli. Number One. Nobody knows how to spell it. Number Two. No matter how long you boil it, it's always cold by the time it reaches your plate. Number Three. It's green. #broccoli";
+  bleep(word, sentence);
+  for (int i = 0; i < sentence.size(); i++) {
+    std::cout << sentence[i];
+  }
+  std::cout << "\n";
+}
+// functions.cpp
+#include <string>
+// replaces characters in the text string with asterisks [*] for the length of the word string
+void asterisk(std::string word, std::string &text, int i) {
+  for (int k = 0; k < word.size(); ++k) {
+    text[i+k] = '*';
+  }
+}
+// iterates through the text string and checks for match of the word
+void bleep(std::string word, std::string &text) {
+  for (int i = 0; i < text.size(); ++i) {   
+    int match = 0;  
+    for (int j = 0; j < word.size(); ++j) {
+      if (text[i+j] == word[j]) {
+        ++match;
+      }
+    }
+    // calls the asterisk function to censor the word in the text string if match is found
+    if (match == word.size()) {
+      asterisk(word, text, i);
+    }
+  }
+}
+// functions.hpp
+void bleep(std::string word, std::string &text);
+void asterisk(std::string word, std::string &text, int i);
