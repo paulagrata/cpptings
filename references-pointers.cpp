@@ -9,16 +9,16 @@ references - reference variable is an alias for something else [another name for
 - aliases cannot be changed to alias something else
 
     pass-by-reference: refers to passing parameters to a function by using references
-    *[when we passed parameters to a function, we used normal variables and that’s known as pass-by-value]*
+    *[when we passed parameters to a function, we used normal variables and that's known as pass-by-value]*
     - when called, the function can modify the value of the arguments by using the reference passed in
     - allows:
         • modify the value of the function arguments
         • avoid making copies of a variable/object for performance reasons
     
     pass-by-reference with const:
-    - const keywords tells the compiler that we won’t change something
-    - cont reference saves the computational cost for a function that doesn’t modify the parameter value(s)
-    - ensure the same thing: the parameter won’t be changed
+    - const keywords tells the compiler that we won't change something
+    - cont reference saves the computational cost for a function that doesn't modify the parameter value(s)
+    - ensure the same thing: the parameter won't be changed
     - by making a reference to the argument, this saves the computational cost of making a copy of the argument
 
 memory address - 
@@ -33,17 +33,17 @@ double meaning of the & symbol can be tricky at first, so make sure to note:
 - when & is used in a declaration, it is a reference operator
 - when & is not used in a declaration, it is an address operator
 
-pointers - a pointer variable is mostly the same as other variables, which can store a piece of data
+pointers - a pointer variable is [mostly the same as other variables], which can store a piece of data
 - stores a memory address [unlike normal variables which store a value such as an int, double, char]
 - recommend avoiding pointers as much as possible; usually, a reference will do the trick
--  must be declared before they can be used [just like a normal variable] 
+- must be declared before they can be used [just like a normal variable] 
 - syntactically distinguished by the * [that int* means “pointer to int“ and double* means “pointer to double“]
     • variable called gum: int gum = 8;
     • create pointer: int* ptr = &gum;
         - int* makes it a pointer rather than a normal variable
         - ptr is the pointer name
         - &gum is the memory address of the other variable gum
-        - now ptr has a value of gum‘s memory address
+        - now ptr has a value of gum's memory address
 
     null pointer: declare a pointer variable like so, its content is not intialized
     - contains an address of “somewhere”, which is of course not a valid location
